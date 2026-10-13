@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width , initial-scale = 1.0">
+    <title>Nhà Bếp Việt Nam </title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <h2>Nhà Bếp</h2>
+            <p>Việt Nam</p>
+        </div>
+        <button class="menu-toggle" id="menuToggle">☰</button>
+
+        <nav id="navMenu">
+            <a href = "#trangchu">Trang Chủ</a>
+            <a href = "#banhngot">Bánh Ngọt</a>
+            <a href = "#banhkem">Bánh Kem</a>
+            <a href = "#datbanh">Đặt Bánh</a>
+            <a href = "#lienhe">Liên Hệ</a>
+        </nav>
+    </header>
+
+    <section class = " hero " id = " trangchu ">
+        <div class = " hero-text ">
+            <h1>Hương vị thủ công chân thành </h1>
+            <p>Thưởng thức bánh ngọt homemade , hương vị thủ công , 
+                hiền lành chân chất của bánh handmade .
+            </p>
+
+            <a href="#datbanh" class = " btn ">Đặt ngay </a>
+        </div>
+
+        <div class = " hero-image ">
+            <img
+                src = " https://lambanhngon.com/upload_images/cac-loai-banh-kem-dau-tay-ngot-ngao-nhat-1.jpg "
+                alt = " Bánh Kem Dâu ">
+        </div>
+    </section>
+
+    <section class = " menu-section " id = " banhngot ">
+        <h2> Menu Bánh </h2>
+
+        <div class = " product-list ">
+
+            <! -- Xong 1 bánh -->
+            <div class = " product ">
+                <img
+                    src = " https://i.ytimg.com/vi/SU9iFGirC9k/maxresdefault.jpg "
+                    alt = " Bánh Bông Lan ">
+                
+                <h3> Bánh Bông Lan Trứng Muối </h3>
+                <p> 350.000đ </p>
+                <button class = " btn order-btn " data-name = " Bánh Bông Lan Trứng Muối ">
+                    Đặt Bánh
+                </button>
+            </div>
+
+            <! -- Xong 2 bánh --> 
+            <div class = " product ">
+                <img
+                    src = " https://vungtaureview.vn/attachments/att-ydz9rdkqhv2droho8dkeeokjjwblgbuwjlryj8kwupa-jpeg.25650/ "
+                    alt = " Bánh TART Trái Cây ">
+                <h3> Bánh TART Trái Cây </h3>
+                <p> 250.000đ </p>
+                <button class = " btn order-btn " data-name = " Bánh TART Trái Cây ">
+                    Đặt Bánh
+                </button>    
+            </div>
+            
+            <! -- Xong 3 bánh -->
+            <div class = " product ">
+                <img
+                    src = " https://tiembanhhm.com/wp-content/uploads/2025/03/cookie-tra-xanh-viet-quat.jpg "
+                    alt = " Bánh Cookies ">
+                <h3> Cookies Trà Xanh </h3>
+                <p> 350.000đ </p>
+                <button class = " btn order-btn " data-name = " Cookies Trà Xanh ">
+                    Đặt Bánh
+                </button>    
+            </div>
+
+            <! -- Xong 4 bánh -->
+            <div class = " product ">
+                <img
+                    src = " https://banhkemhannie.com/wp-content/uploads/2023/11/2.jpg "
+                    alt = " Bánh Kem ">
+                <h3> Bánh Kem Dâu </h3>
+                <p> 350.000đ </p>
+                <button class = " btn order-btn " data-name = " Bánh Kem Dâu  ">
+                    Đặt Bánh
+                </button>    
+            </div>
+
+            <! -- Xong 5 bánh -->
+            <div class = " product ">
+                <img
+                    src = " https://tvpfood.com/wp-content/uploads/2024/11/banh-mi-ngot-bao-nhieu-calo_2256a9caa66641fc852e024f4999d3de_1024x1024.webp "
+                    alt = " Bánh ngọt ">
+                <h3> Bánh Ngọt Homemade </h3>
+                <p> 250.000đ </p>
+                <button class = " btn order-btn " data-name = " Bánh Ngọt Homemade ">
+                    Đặt Bánh
+                </button>    
+            </div>
+
+            <! -- Xong 6 bánh -->
+            <div class = " product ">
+                <img
+                    src = " https://i.ytimg.com/vi/R2QDUTttQdo/maxresdefault.jpg "
+                    alt = " Bánh Cookies ">
+                <h3> Cookies Bơ </h3>
+                <p> 350.000đ </p>
+                <button class = " btn order-btn " data-name = " Cookies Bơ ">
+                </button>    
+            </div>
+
+
+        </div>
+    </section>
+
+    <! -- Form đặt bánh theo yêu cầu của khách -->
+    <section class = " order-section " id = " datbanh ">
+        <h2> Đặt Bánh Theo Yêu Cầu Của Khách Hàng </h2>
+
+        <form id = " orderForm ">
+            <input 
+                type = " text "
+                id = " customerName "
+                placeholder = " Tên Của Bạn "
+                required >
+            
+            <input 
+                type = " tel "
+                id = " phone "
+                placeholder = " Số Điện Thoại "
+                required >
+            
+            <select id = " cakeType " required >
+                <option value = "" > Chọn Loại Bánh </option>
+                <option> Bánh Bông Lan Trứng Muối </option>
+                <option> Bánh TART Trái Cây </option>
+                <option> Cookies Trà Xanh </option>
+                <option> Bánh Kem Dâu </option>
+                <option> Bánh Ngọt Homemade </option>
+                <option> Cookies Bơ </option>
+                <option> Bánh Theo Yêu Cầu Riêng </option>
+            </select>
+
+            <textarea 
+                id = " note "
+                placeholder = " Ghi chú bánh theo yêu cầu của bạn "
+                rows = " 4 " >
+            </textarea>
+
+            <button type = " submit " class = " btn submit-btn ">
+                Gửi yêu cầu 
+            </button>
+        </form>
+        
+        <p id = " message "></p>
+    </section>
+
+    <footer id = " lienhe ">
+        <div>
+            <h3> Nhà Bếp Việt Nam </h3>
+            <p> Bánh handmade thơm ngon mỗi ngày .</p>
+        </div>
+
+        <div>
+            <h3> Liên hệ </h3>
+            <p> Địa chỉ : TP. Hồ Chí Minh </p>
+            <p> Email : 66510671014@.st.utc2.edu.vn </p>
+            <p> Điện Thoại : 0707085820 </p>
+        </div>
+    </footer>
+</body>
+</html>
