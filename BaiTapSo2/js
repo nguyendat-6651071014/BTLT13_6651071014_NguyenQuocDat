@@ -1,0 +1,153 @@
+$(document).ready(function () {
+    $("#menuToggle").on("click", function () {
+
+        $("#navMenu").toggleClass("active");
+
+        if ($("#navMenu").hasClass("active")) {
+            $(this).text("✕");
+        } else {
+            $(this).text("☰");
+        }
+
+    });
+
+    
+
+    $("#navMenu a").on("click", function () {
+
+        $("#navMenu").removeClass("active");
+        $("#menuToggle").text("☰");
+
+    });
+
+
+    // =========================
+    // 2. NÚT ĐẶT BÁNH
+    // =========================
+
+    $(".order-btn").on("click", function () {
+
+        // Lấy tên bánh từ thuộc tính data-name
+
+        var cakeName = $(this).attr("data-name");
+
+        // Chọn loại bánh tương ứng trong form
+
+        $("#cakeType").val(cakeName);
+
+        // Cuộn đến form đặt bánh
+
+        $("html, body").animate({
+            scrollTop: $("#datbanh").offset().top - 80
+        }, 600);
+
+        // Đưa con trỏ đến ô nhập tên
+
+        setTimeout(function () {
+            $("#customerName").trigger("focus");
+        }, 650);
+
+    });
+
+
+    // =========================
+    // 3. XỬ LÝ FORM ĐẶT BÁNH
+    // =========================
+
+    $("#orderForm").on("submit", function (event) {
+
+        // Ngăn trình duyệt tải lại trang
+
+        event.preventDefault();
+
+        // Lấy thông tin khách hàng
+
+        var customerName = $("#customerName").val().trim();
+        var phone = $("#phone").val().trim();
+        var cakeType = $("#cakeType").val();
+        var note = $("#note").val().trim();
+
+        // Lấy khu vực hiển thị thông báo
+
+        var message = $("#message");
+
+        // Kiểm tra tên
+
+        if (customerName === "") {
+
+            message
+                .removeClass("success")
+                .addClass("error")
+                .text("Vui lòng nhập họ và tên.")
+                .show();
+
+            $("#customerName").trigger("focus");
+
+            return;
+        }
+
+        // Kiểm tra số điện thoại
+
+        var phonePattern = /^[0-9+\s().-]{9,20}$/;
+
+        if (!phonePattern.test(phone)) {
+
+            message
+                .removeClass("success")
+                .addClass("error")
+                .text("Vui lòng kiểm tra lại số điện thoại.")
+                .show();
+
+            $("#phone").trigger("focus");
+
+            return;
+        }
+
+        // Kiểm tra loại bánh
+
+        if (cakeType === "") {
+
+            message
+                .removeClass("success")
+                .addClass("error")
+                .text("Vui lòng chọn loại bánh.")
+                .show();
+
+            $("#cakeType").trigger("focus");
+
+            return;
+        }
+
+        // Tạo nội dung thông báo
+
+        var notification =
+            "Cảm ơn " + customerName + "!\n" +
+            "Loại bánh: " + cakeType + "\n" +
+            "Số điện thoại: " + phone;
+
+        if (note !== "") {
+            notification += "\nGhi chú: " + note;
+        }
+
+        // Hiển thị thông báo thành công
+
+        message
+            .removeClass("error")
+            .addClass("success")
+            .text(
+                "Đã kiểm tra thông tin đặt bánh thành công! " +
+                "Cảm ơn " + customerName +
+                ". Đây là bản demo, yêu cầu chưa được gửi đến cửa hàng."
+            )
+            .show();
+
+        console.log("===== THÔNG TIN ĐẶT BÁNH =====");
+        console.log("Khách hàng:", customerName);
+        console.log("Số điện thoại:", phone);
+        console.log("Loại bánh:", cakeType);
+        console.log("Ghi chú:", note);
+        console.log(notification);
+
+    });
+
+});
